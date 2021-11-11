@@ -7,3 +7,15 @@ services:
       - ./:/app:delegated
     ports:
       - '8000:80'
+    networks:
+      - code-network
+  mysql:
+    image: mysql/mysql-server:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: sait
+    networks:
+      - code-network
+networks:
+  code-network:
+    driver: bridge
