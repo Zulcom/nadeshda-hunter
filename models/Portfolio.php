@@ -22,7 +22,7 @@ class Portfolio extends \yii\db\ActiveRecord
     }
     public function getAuthor()
     {
-        return $this->hasOne(User::class, ['user_id' => 'id'])->select('username')->scalar();
+        return $this->hasOne(User::class, ['id' => 'user_id']);
     }
 
     /**

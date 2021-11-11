@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\PortfolioSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Portfolios';
+$this->title = 'Cписок резюме';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="portfolio-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Создайте портфолио', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создайте резюме', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -26,10 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'author',
-            'title',
-            'cost',
-            'description',
+           ['attribute' => 'author', 'value' => 'author.username','label' => 'Автор', 'format' => 'text'],
+           ['attribute' => 'title','label' => 'Заголовок', 'format' => 'text'],
+            ['attribute' => 'description','label' => 'Описание', 'format' => 'text'],
+            ['attribute' => 'cost','label' => 'Заработная плата', 'format' => 'text'],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
